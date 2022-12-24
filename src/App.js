@@ -4,7 +4,7 @@ import Catalog from "./pages/catalog";
 import Header from "./components/header";
 function App() {
   return (
-   <Router>
+   <Router basename={process.env.PUBLIC_URL + '/'}>
       <Header/>
       <Routes>
         <Route path= "/Homepage" element = {<Homepage/>}/>
