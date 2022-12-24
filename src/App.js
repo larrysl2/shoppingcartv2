@@ -4,13 +4,13 @@ import Catalog from "./pages/catalog";
 import Header from "./components/header";
 function App() {
   return (
-   <Router basename={process.env.PUBLIC_URL}>
+   <div>
       <Header/>
       <Routes>
         <Route path= "/" element = {<Homepage/>}/>
         <Route path= "/Catalog" element = {<Catalog/>}/>
       </Routes>
-   </Router>
+      </div>
   );
 }
 
