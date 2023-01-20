@@ -17,11 +17,18 @@ const Catalog =()=>{
         setcart(cart);
         console.log(cart)
     };
-   
+   const deleteProduct = (id) => {
+        setcart(prevCart => prevCart.filter(product => product.id !== id));
+        settotalcost(prevCost => prevCost - cart.find(product => product.id === id).price);
+        setaddproduct(prevCount => prevCount - 1);
+    };
+    
     const showcart = cart.map((product)=>( //cart is mapped out and displayed
         <ShowCart
+            key={product.id}
             id={product.id}
             product={product}
+            deleteProduct={deleteProduct}
             />
     ));
     const calcTotalCost = (product)=>{ //cost is calculated and rounded for hundreth place
@@ -51,6 +58,7 @@ const Catalog =()=>{
             addToCart={() => addToCart(product)}
         />
     ));
+    
     
     return(
         <div className="page">
